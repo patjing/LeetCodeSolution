@@ -18,15 +18,17 @@ public class JumpGame
         	{
         		return true;
         	}
-        	//element is 0, fall back to find
+        	//element is 0
         	if(nums[index]==0)
         	{
+        		//element is 0, fall back to find
         		int changedindex = index;
         		
         		for(;changedindex>=0;changedindex--)
         		{
         			if(changedindex>0&&nums[changedindex]>0)
         			{
+        				//for the element that it can over the left point in 0 position
         				if(nums[changedindex]+changedindex>index)
         				{
         					changedindex += nums[changedindex];
@@ -45,11 +47,12 @@ public class JumpGame
         		
         		int loopindex = index-1;
         		
-        		//for reverse loop
+        		//for reverse loop , like 4,3,2,1,0
         		System.out.println("ready");
         		for(;loopindex>=0;loopindex--)
         		{
         			System.out.println("loopindex:"+loopindex);
+        			//for reverse loop for index >0
         			if(loopindex>0&&nums[loopindex-1]==nums[loopindex]+1)
         			{
         				//System.out.println("loopindex:"+loopindex);
@@ -58,6 +61,7 @@ public class JumpGame
             				return false;
             			}
         			}
+        			//for reverse loop for index == 0
         			else if(loopindex==0&&nums[loopindex+1]==nums[loopindex]-1)
         			{
         				//System.out.println("loopindex:"+loopindex);
